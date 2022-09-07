@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class LinkedList {
+class SinglyLinkedList {
     constructor(value) {
         this.head = new Node(value);
         this.tail = this.head;
@@ -124,9 +124,9 @@ class LinkedList {
     }
 }
 
-const newLinkedList = new LinkedList(10);
+const newLinkedList = new SinglyLinkedList(10);
 newLinkedList.append(20);
 newLinkedList.prepend(30);
-newLinkedList.insertAtIndex(0, 40);
-newLinkedList.deleteAtIndex(2);
+newLinkedList.insert(0, 40);
+newLinkedList.delete(2);
 newLinkedList.printList();
