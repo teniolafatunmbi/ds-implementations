@@ -48,7 +48,7 @@ class SinglyLinkedList {
         const array = [];
         let currentNode = this.head;
         while (currentNode !== null) {
-            array.push(currentNode.value);
+            array.push(currentNode);
             currentNode = currentNode.next;
         }
 
@@ -122,6 +122,32 @@ class SinglyLinkedList {
 
         return this.length--;
     }
+
+    reverse() {
+        if(!this.head.next) {
+            return this.head;
+        }
+
+        // hold reference to prev, next, and curr
+        let first = this.head;
+        this.tail = this.head;
+        let next = first.next;
+
+        while (next !== null) {
+            // swap the referenced variables
+            let temp = next.next;
+            next.next = first;
+            first = next;
+            next = temp;
+
+        }
+
+        // set head.next to null (making it the tail) and set head to first 
+        this.head.next = null;
+        this.head = first
+
+        return this.printList();
+    }
 }
 
 const newLinkedList = new SinglyLinkedList(10);
@@ -130,3 +156,5 @@ newLinkedList.prepend(30);
 newLinkedList.insert(0, 40);
 newLinkedList.delete(2);
 newLinkedList.printList();
+newLinkedList.reverse();
+
