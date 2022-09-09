@@ -10,7 +10,7 @@ class Linkedlist(object):
     
     # add node to beginning of the list
     def add_to_front(self, data):
-        self.head = Node(data=data, next=self.head)
+        self.head = Node(data=data, next=None)
 
     # add node to the end of the list
     def add_to_end(self, data):
